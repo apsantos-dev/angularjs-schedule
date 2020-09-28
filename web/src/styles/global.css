@@ -167,7 +167,7 @@
   font-weight: 600;
 }
 .textarea-block.custom p {
-  color: var(--color-info-danger-primary);
+  color: var(--color-primary-dark);
   font: 700 1.6rem "Jura", sans-serif;
   margin-top: 1.4rem;
 }
@@ -200,6 +200,40 @@
   left: 1.6rem;
   right: 1.6rem;
   bottom: 0.7rem;
+}
+
+.iconBS {
+  box-shadow: 0 0 3rem var(--color-box-shadow-primary);
+  border: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  width: 36px;
+}
+
+.danger {
+  color: var(--color-info-danger-secondary);
+}
+
+/* CUSTOM */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
 }
 
 /* mobile */

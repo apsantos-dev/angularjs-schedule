@@ -15,88 +15,82 @@
   </header>
 
   <main>
-    <form name="contactForm">
+    <form name="registerForm">
       <fieldset>
-        <legend>Dados do contato</legend>
+        <legend>
+          Dados do contato
+          <i
+            class="fa fa-trash iconBS animated fadeIn danger"
+            aria-hidden="true"
+            title="Limpar consulta"
+            ng-if="user.length"
+            ng-click="resetContact()"
+          ></i>
+        </legend>
 
         <div class="input-block">
           <label for="name">Username</label>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="user"
+            id="user"
             placeholder="Nome de usuário no GitHub"
+            ng-model="register.user"
+            ng-minlength="2"
+            ng-required="true"
           />
         </div>
       </fieldset>
 
-      <article class="card-user">
-        <header>
-          <img src=https://avatars0.githubusercontent.com/u/32685587?v=4
-          alt='Anderson Pires' />
-          <div>
-            <strong>Anderson Pires</strong>
-            <span>Belo Horizonte - MG / Brasil</span>
+      <!-- card user -->
+      <div ng-if="user.length" class="animated fadeIn">
+        <article class="card-user" ng-repeat="item in user">
+          <header>
+            <img
+              ng-src="{{item.avatar_url ? item.avatar_url : 'src/assets/img/icons/profile.png'}}"
+              alt="{{item.name}}"
+            />
+
+            <div>
+              <strong>{{item.name}}</strong>
+              <span>{{item.location}}</span>
+            </div>
+          </header>
+
+          <p>{{item.bio}}</p>
+
+          <p class="info-bio" ng-if="error.info">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+            {{error.info}}
+          </p>
+        </article>
+
+        <fieldset>
+          <div class="textarea-block custom">
+            <label for="bio">Observação</label>
+            <textarea
+              name="bio"
+              id="bio"
+              ng-model="register.obs"
+              placeholder="Adicione algum comentário, caso desejar."
+            ></textarea>
           </div>
-        </header>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dolor
-          quidem illum placeat velit eaque perferendis impedit qui maxime
-          aperiam. Tempore, animi? Illo voluptas soluta minus aliquid fuga at
-          ea. Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-          dicta iure assumenda nam sit nobis quae cupiditate dolores,
-          laudantium, facilis ipsam tempore dolor mollitia natus omnis obcaecati
-          vero accusamus ut. Lorem ipsum, dolor sit amet consectetur adipisicing
-          elit. Animi veritatis aliquam sapiente debitis iure reprehenderit
-          maiores ab earum ad id. Blanditiis sunt, ex voluptates in nostrum
-          vitae ratione repellendus ullam. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Id dolor quidem illum placeat velit
-          eaque perferendis impedit qui maxime aperiam. Tempore, animi? Illo
-          voluptas soluta minus aliquid fuga at ea. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Possimus dicta iure assumenda nam sit
-          nobis quae cupiditate dolores, laudantium, facilis ipsam tempore dolor
-          mollitia natus omnis obcaecati vero accusamus ut. Lorem ipsum, dolor
-          sit amet consectetur adipisicing elit. Animi veritatis aliquam
-          sapiente debitis iure reprehenderit maiores ab earum ad id. Blanditiis
-          sunt, ex voluptates in nostrum vitae ratione repellendus ullam. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Id dolor quidem
-          illum placeat velit eaque perferendis impedit qui maxime aperiam.
-          Tempore, animi? Illo voluptas soluta minus aliquid fuga at ea. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Possimus dicta iure
-          assumenda nam sit nobis quae cupiditate dolores, laudantium, facilis
-          ipsam tempore dolor mollitia natus omnis obcaecati vero accusamus ut.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-          veritatis aliquam sapiente debitis iure reprehenderit maiores ab earum
-          ad id. Blanditiis sunt, ex voluptates in nostrum vitae ratione
-          repellendus ullam.
-        </p>
-
-        <p class="info-bio">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-          Sem informações adicionais!
-        </p>
-      </article>
-
-      <fieldset>
-        <div class="textarea-block custom">
-          <label for="bio">Observação</label>
-          <textarea
-            name="bio"
-            id="bio"
-            placeholder="Adicione algum comentário, caso desejar."
-          ></textarea>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
 
       <footer>
-        <p>
+        <!-- <p ng-if="!error.info">
           <i class="fa fa-info-circle" aria-hidden="true"></i>
           Preencha todos os dados
-        </p>
-        <button type="submit">
-          <i class="fa fa-cloud" aria-hidden="true"></i>
-          Salvar contato
+        </p> -->
+
+        <button
+          type="button"
+          ng-disabled="registerForm.$invalid"
+          ng-click="addContact(register)"
+        >
+          <i class="fa fa-{{dataButton.icon}}" aria-hidden="true"></i>
+          {{dataButton.name}}
         </button>
       </footer>
     </form>
