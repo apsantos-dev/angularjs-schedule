@@ -1,3 +1,4 @@
 app.controller("displayCtrl", function ($scope) {
-  $scope.message = "Lista de contatos";
+  $scope.title = "Contatos";
+  $scope.subtitle = "Lista de contatos cadastrados";
 });

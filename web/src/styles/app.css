@@ -10,6 +10,11 @@
 
   --color-button-text: #ffffff;
 
+  --color-info-danger-primary: #e74c3c;
+  --color-info-danger-secondary: #c0392b;
+  --color-info-warning-primary: #e67e22;
+  --color-info-warning-secondary: #d35400;
+
   --color-input-background: #f8f8fc;
 
   --color-line-in-white: #e6e6f0;

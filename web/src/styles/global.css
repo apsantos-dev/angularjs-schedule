@@ -159,6 +159,19 @@
   position: relative;
 }
 
+.textarea-block.custom {
+  margin-top: 1.4rem;
+}
+
+.textarea-block.custom label.custom {
+  font-weight: 600;
+}
+.textarea-block.custom p {
+  color: var(--color-info-danger-primary);
+  font: 700 1.6rem "Jura", sans-serif;
+  margin-top: 1.4rem;
+}
+
 .textarea-block label {
   font-size: 1.4rem;
 }
