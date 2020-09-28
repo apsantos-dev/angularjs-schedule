@@ -44,8 +44,7 @@ app.controller("registerCtrl", function ($scope, env) {
       location: "Belo Horizonte - MG / Brasil",
       email: null,
       hireable: null,
-      bio:
-        "\r\n    Systems Analyst\r\n\r\nPassionate about web development, free software ...\r\n",
+      bio: null,
       twitter_username: null,
       public_repos: 28,
       public_gists: 1,

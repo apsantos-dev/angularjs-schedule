@@ -207,6 +207,7 @@
   border: none;
   border-radius: 50%;
   box-sizing: border-box;
+  cursor: pointer;
   height: 36px;
   line-height: 36px;
   text-align: center;
