@@ -1,0 +1,71 @@
+:root {
+  font-size: 60%;
+
+  --color-background: #f0f0f7;
+
+  --color-box-base: #ffffff;
+  --color-box-footer: #fafafc;
+
+  --color-button-text: #ffffff;
+
+  --color-input-background: #f8f8fc;
+
+  --color-line-in-white: #e6e6f0;
+
+  --color-primary-dark: #17427e;
+  --color-primary-darker: #021836;
+  --color-primary-light: #7eb5e3;
+  --color-primary-lighter: #4a7abc;
+  --color-primary: #f9feff;
+
+  --color-secondary-dark: #132334;
+  --color-secondary: #455d76;
+
+  --color-text-base: #202022cc;
+  --color-text-complement: #9c98a6;
+  --color-text-in-primary: #232224;
+  --color-text-title: #383149;
+
+  --color-title-in-primary: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: var(--color-background);
+
+  text-rendering: optimizeLegibility !important;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem "Jura", sans-serif;
+  color: var(--color-text-base);
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 62.5%;
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="schedule">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#363435" />
+    <meta
+      name="description"
+      content="Lista de contatos com integração a API do GitHub e backend com NodeJS."
+    />
+    <link rel="icon" href="./favicon.ico" />
+
+    <base href="./" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="./node_modules/fontawesome-4.7/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="./src/styles/app.css" />
+    <link rel="stylesheet" href="./src/styles/global.css" />
+    <link rel="stylesheet" href="./src/styles/social-network.css" />
+
+    <title>Agenda</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <div ng-show="loading">
+      <h5>Aguarde...</h5>
+    </div>
+
+    <div ng-hide="loading" id="root">
+      <div ng-view></div>
+    </div>
+
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="./node_modules/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+
+    <script src="./src/lib/serial.generator.js"></script>
+
+    <script src="./src/app.js"></script>
+
+    <script src="./src/controllers/displayCtrl.js"></script>
+    <script src="./src/controllers/HomeCtrl.js"></script>
+    <script src="./src/controllers/registerCtrl.js"></script>
+
+    <script src="./src/env/env.js"></script>
+
+    <script src="./src/services/api.github.js"></script>
+    <script src="./src/services/api.node.js"></script>
+
+    <script src="./src/config/interceporsConfig.js"></script>
+    <script src="./src/config/routeConfig.js"></script>
+    <script src="./src/config/serialGeneratorConfig.js"></script>
+
+    <script src="./src/filters/ellipsisFilter.js"></script>
+
+    <script src="./src/directives/alert.directive.js"></script>
+
+    <script src="./src/interceptors/errorInterceptor.js"></script>
+    <script src="./src/interceptors/loadingInterceptor.js"></script>
+  </body>
+</html>

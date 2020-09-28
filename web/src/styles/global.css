@@ -1,0 +1,161 @@
+.page-home {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--color-text-in-primary);
+  background: var(--color-primary);
+}
+
+.buttons-container {
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-start;
+  margin: 3.2rem 0;
+}
+.buttons-container a {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font: 700 2rem "Jura", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  color: var(--color-button-text);
+
+  transition: background-color 0.4s;
+}
+.buttons-container a:first-child {
+  margin-right: 2rem;
+}
+.buttons-container a > .fa {
+  margin-right: 1.6rem;
+}
+.buttons-container a.display {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary-lighter) 100%
+  );
+}
+.buttons-container a.display:hover {
+  background: var(--color-primary-lighter);
+}
+.buttons-container a.create {
+  background: var(--color-secondary);
+}
+.buttons-container a.create:hover {
+  background: var(--color-secondary-dark);
+}
+
+.logo-container {
+  grid-area: logo;
+  align-self: center;
+  padding: 1.5rem;
+  margin: 0;
+  text-align: initial;
+}
+.logo-container h2 {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 4rem;
+  margin-top: 2rem;
+  text-align: initial;
+}
+.logo-container h2 .fa {
+  border-radius: 50%;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+  margin-left: 1rem;
+}
+
+.info {
+  grid-area: info;
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font: 700 1.6rem "Jura", sans-serif;
+}
+
+/**
+ * mobile
+ *
+ */
+@media screen and (max-width: 767px) {
+  .page-home-content {
+    text-align: center;
+  }
+
+  .logo-container {
+    text-align: center;
+  }
+  .logo-container img {
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+  }
+  .logo-container h2 {
+    text-align: center;
+    margin: 1rem;
+  }
+
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttons-container a {
+    width: 16.5rem;
+    height: 5rem;
+  }
+
+  .image-capa {
+    max-width: 35rem;
+  }
+}
+
+/**
+ * desktop
+ *
+ */
+@media screen and (min-width: 768px) {
+  .page-home-content {
+    max-width: 110rem;
+
+    display: grid;
+    grid-template-rows: 38rem 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      "logo capa capa"
+      "buttons buttons info";
+  }
+
+  .logo-container img {
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+  }
+
+  .buttons-container a {
+    width: 26rem;
+    height: 6rem;
+  }
+
+  .image-capa {
+    grid-area: capa;
+    align-self: center;
+    justify-self: end;
+    width: 100%;
+    max-width: 50rem;
+  }
+}

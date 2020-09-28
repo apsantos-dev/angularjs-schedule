@@ -1,0 +1,99 @@
+/* Standard icon structure in square format. */
+.fa-custom {
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 1);
+  font-size: 1.1em;
+  height: 35px;
+  line-height: 35px;
+  margin: 5px 8px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 35px;
+
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.fa-custom:before {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  position: absolute;
+
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.fa-custom:active,
+.fa-custom:hover {
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.fa-custom:hover:before {
+  width: 100%;
+}
+
+/* specific facebook brand color */
+.fa-facebook.fa-custom {
+  background: rgba(65, 94, 155, 1);
+}
+.fa-facebook.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f09a';
+}
+
+/* specific github brand color */
+.fa-github.fa-custom {
+  background: rgba(34, 34, 34, 1);
+}
+.fa-github.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f09b';
+}
+
+/* specific instagram brand color */
+.fa-instagram.fa-custom {
+  background: rgba(161, 117, 92, 1);
+}
+.fa-instagram.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f16d';
+}
+
+/* specific linkedin brand color */
+.fa-linkedin.fa-custom {
+  background: rgba(13, 124, 183, 1);
+}
+.fa-linkedin.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f0e1';
+}
+
+/* specific twitter brand color */
+.fa-twitter.fa-custom {
+  background: rgba(87, 195, 255, 1);
+}
+.fa-twitter.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f099';
+}
+
+/* specific youtube brand color */
+.fa-youtube.fa-custom {
+  background: rgba(230, 33, 23, 1);
+}
+.fa-youtube.fa-custom:after {
+  font-family: FontAwesome;
+  content: '\f167';
+}
