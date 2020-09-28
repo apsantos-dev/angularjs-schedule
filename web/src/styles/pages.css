@@ -133,7 +133,7 @@
   border-radius: 50%;
   box-shadow: 0 0 3rem var(--color-box-shadow-default);
   font-size: 2rem;
-  margin-right: 1.6rem;
+  margin-right: 1rem;
 }
 
 .page-register-form main footer button,
@@ -164,7 +164,7 @@
 
 .page-register-form main footer button i,
 .page-display-contacts main footer button i {
-  margin-right: 1.6rem;
+  margin-right: 1rem;
 }
 
 /**
@@ -234,7 +234,7 @@
   border-radius: 50%;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
   font-size: 2rem;
-  margin-right: 1.6rem;
+  margin-right: 1rem;
 }
 
 /* mobile */
@@ -243,4 +243,8 @@
 
 /* desktop */
 @media screen and (min-width: 768px) {
+  .page-register-form,
+  .page-display-contacts {
+    max-width: 992px;
+  }
 }
