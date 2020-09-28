@@ -1,3 +1,4 @@
 app.controller("registerCtrl", function ($scope) {
-  $scope.message = "Cadastro de contato";
+  $scope.title = "Cadastro";
+  $scope.subtitle = "Informe os dados abaixo para cadastrar o novo contato:";
 });

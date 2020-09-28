@@ -3,8 +3,10 @@
 
   --color-background: #f0f0f7;
 
-  --color-box-base: #ffffff;
+  --color-box-base: #f1f1f1;
   --color-box-footer: #fafafc;
+  --color-box-shadow-primary: rgba(54, 52, 53, 0.2);
+  --color-box-shadow-default: rgba(54, 52, 53, 0.5);
 
   --color-button-text: #ffffff;
 
@@ -21,12 +23,12 @@
   --color-secondary-dark: #132334;
   --color-secondary: #455d76;
 
-  --color-text-base: #202022cc;
+  --color-text-base: #202022;
   --color-text-complement: #9c98a6;
   --color-text-in-primary: #232224;
   --color-text-title: #383149;
 
-  --color-title-in-primary: #ffffff;
+  --color-title-in-primary: #132334;
 }
 
 * {
@@ -38,7 +40,8 @@
 
 html,
 body,
-#root {
+#root,
+.loading-page {
   height: 100vh;
 }
 
@@ -50,7 +53,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-#root {
+#root,
+.loading-page {
   display: flex;
   justify-content: center;
   align-items: center;

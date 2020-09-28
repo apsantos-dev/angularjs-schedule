@@ -1,3 +1,3 @@
-app.controller("registerCtrl", function ($scope) {
+app.controller("displayCtrl", function ($scope) {
   $scope.message = "Lista de contatos";
 });

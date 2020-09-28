@@ -1,3 +1,26 @@
+/**
+ * .loading-page
+ */
+.loading-page p {
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.1);
+  color: var(--color-text-complement);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin-bottom: 2.5rem;
+  padding: 1.8rem;
+  width: 90%;
+}
+
+.loading-page p i {
+  border-radius: 50%;
+  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+  font-size: 2rem;
+  margin-right: 1.6rem;
+}
+
+/**
+ * page-home
+ */
 .page-home {
   width: 100vw;
   height: 100vh;
@@ -16,6 +39,7 @@
   justify-content: flex-start;
   margin: 3.2rem 0;
 }
+
 .buttons-container a {
   border: none;
   border-radius: 0.5rem;
@@ -32,12 +56,15 @@
 
   transition: background-color 0.4s;
 }
+
 .buttons-container a:first-child {
   margin-right: 2rem;
 }
+
 .buttons-container a > .fa {
   margin-right: 1.6rem;
 }
+
 .buttons-container a.display {
   background: linear-gradient(
     90deg,
@@ -45,12 +72,15 @@
     var(--color-primary-lighter) 100%
   );
 }
+
 .buttons-container a.display:hover {
   background: var(--color-primary-lighter);
 }
+
 .buttons-container a.create {
   background: var(--color-secondary);
 }
+
 .buttons-container a.create:hover {
   background: var(--color-secondary-dark);
 }
@@ -62,6 +92,7 @@
   margin: 0;
   text-align: initial;
 }
+
 .logo-container h2 {
   font-weight: 500;
   font-size: 2.4rem;
@@ -69,6 +100,7 @@
   margin-top: 2rem;
   text-align: initial;
 }
+
 .logo-container h2 .fa {
   border-radius: 50%;
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
@@ -87,9 +119,77 @@
 }
 
 /**
- * mobile
- *
+ * input
  */
+.input-block {
+  position: relative;
+}
+
+.input-block label {
+  font: 700 1.6rem "Jura", sans-serif;
+}
+
+.input-block input {
+  width: 100%;
+  height: 5.4rem;
+  margin-top: 0.8rem;
+  border-radius: 0.5rem;
+  background: var(--color-input-background);
+  border: 1px solid var(--color-line-in-white);
+  outline: 0;
+  padding: 0 1.6rem;
+  font: 700 1.6rem "Jura", sans-serif;
+}
+
+.input-block:focus-within::after {
+  content: "";
+  width: calc(100% - 3.2rem);
+  height: 2px;
+  background: var(--color-primary-light);
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 0;
+}
+
+/**
+ * textare
+ */
+.textarea-block {
+  position: relative;
+}
+
+.textarea-block label {
+  font-size: 1.4rem;
+}
+
+.textarea-block textarea {
+  width: 100%;
+  height: 16rem;
+  min-height: 8rem;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  background: var(--color-input-background);
+  border: 1px solid var(--color-line-in-white);
+  color: var(--color-primary-dark);
+  outline: 0;
+  resize: vertical;
+  padding: 1.2rem 1.6rem;
+  font: 700 1.6rem "Jura", sans-serif;
+}
+
+.textarea-block:focus-within::after {
+  content: "";
+  width: calc(100% - 3.2rem);
+  height: 0.2rem;
+  background: var(--color-primary-light);
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 0.7rem;
+}
+
+/* mobile */
 @media screen and (max-width: 767px) {
   .page-home-content {
     text-align: center;
@@ -98,11 +198,13 @@
   .logo-container {
     text-align: center;
   }
+
   .logo-container img {
     width: 100%;
     max-width: 30rem;
     height: auto;
   }
+
   .logo-container h2 {
     text-align: center;
     margin: 1rem;
@@ -121,6 +223,13 @@
 
   .image-capa {
     max-width: 35rem;
+  }
+
+  .input-block + .input-block,
+  .input-block + .textarea-block,
+  .textarea-block + .textarea-block,
+  .textarea-block + .input-block {
+    margin-top: 1.4rem;
   }
 }
 
@@ -157,5 +266,9 @@
     justify-self: end;
     width: 100%;
     max-width: 50rem;
+  }
+
+  .input-block + .input-block {
+    margin-top: 1.4rem;
   }
 }
