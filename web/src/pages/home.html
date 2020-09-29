@@ -1,5 +1,5 @@
 <div class="page-home">
-  <div class="page-home-content">
+  <div class="page-home-content animated fadeIn">
     <div class="logo-container">
       <img src="./src/assets/img/logo.png" alt="Logo APSantos" />
       <h2>
@@ -31,26 +31,17 @@
       <span class="infinformationo">v0.0.1-beta</span>
     </p>
 
-    <div class="social-networks">
+    <div class="social-networks" ng-if="socialNetworks.length">
       <p>Minhas redes sociais:</p>
 
-      <a ng-click="openURL('facebook')">
-        <i class="fa fa-facebook fa-custom" aria-hidden="true"></i>
-      </a>
-      <a ng-click="openURL('github')">
-        <i class="fa fa-github fa-custom" aria-hidden="true"></i>
-      </a>
-      <a ng-click="openURL('instagram')">
-        <i class="fa fa-instagram fa-custom" aria-hidden="true"></i>
-      </a>
-      <a ng-click="openURL('linkedin')">
-        <i class="fa fa-linkedin fa-custom" aria-hidden="true"></i>
-      </a>
-      <a ng-click="openURL('twitter')">
-        <i class="fa fa-twitter fa-custom" aria-hidden="true"></i>
-      </a>
-      <a ng-click="openURL('youtube')">
-        <i class="fa fa-youtube fa-custom" aria-hidden="true"></i>
+      <a
+        href="{{item.url}}"
+        rel="noopener noreferrer"
+        target="_blank"
+        title="{{item.text}}"
+        ng-repeat="item in socialNetworks"
+      >
+        <i class="fa fa-{{item.icon}} fa-custom" aria-hidden="true"></i>
       </a>
     </div>
   </div>

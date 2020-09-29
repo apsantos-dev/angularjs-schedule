@@ -4,6 +4,9 @@
 # Folders and project files
 help
 
+# banco de dados
+src/database/database.sqlite
+
 *~
 *.sw[mnpcod]
 *.log

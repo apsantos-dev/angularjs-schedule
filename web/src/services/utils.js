@@ -1,4 +1,8 @@
 app.factory("utils", () => {
+  const _convertToLowercase = (text) => {
+    return text.toLowerCase();
+  };
+
   const _sortArrayItems = (arr) => {
     let newObj = [];
 
@@ -27,6 +31,7 @@ app.factory("utils", () => {
   };
 
   return {
+    convertToLowercase: _convertToLowercase,
     sortArrayItems: _sortArrayItems,
     sortArrayItemsDesc: _sortArrayItemsDesc,
     validateFieldNullAndUndefined: _validateFieldNullAndUndefined,

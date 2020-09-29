@@ -4,15 +4,15 @@ export async function seed(knex: Knex) {
   await knex("socialNetworks").insert([
     {
       active: true,
-      text: "Facebook",
+      text: "Instagram",
       url: "https://www.instagram.com/apsantos_dev/",
     },
     {
       active: true,
-      text: "GitHub",
+      text: "Facebook",
       url: "https://www.facebook.com/apsantos.dev",
     },
-    { active: true, text: "Instagram", url: "https://github.com/apsantos-dev" },
+    { active: true, text: "GitHub", url: "https://github.com/apsantos-dev" },
     {
       active: true,
       text: "Linkedin",
