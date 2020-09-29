@@ -1,18 +1,13 @@
-app.factory("nodeAPI", ($http, env) => {
-  const _getContact = (id) => {
-    return $http.get(`${env.API_BASE_URL}/contact/${id}`);
-  };
-
+app.factory("serverAPI", ($http, env) => {
   const _getContacts = () => {
-    return $http.get(`${env.API_BASE_URL}/contacts`);
+    return $http.get(`${env.APP_BASE_URL}${env.APP_PATH_CONTACTS}`);
   };
 
   const _createContact = (contact) => {
-    return $http.post(`${env.API_BASE_URL}/create`, contact);
+    return $http.post(`${env.APP_BASE_URL}${env.APP_PATH_CONTACT}`, contact);
   };
 
   return {
-    getContact: _getContact,
     getContacts: _getContacts,
     createContact: _createContact,
   };

@@ -215,8 +215,13 @@
   width: 36px;
 }
 
+/* COLORS */
 .danger {
   color: var(--color-info-danger-secondary);
+}
+
+.theme {
+  color: var(--color-primary-dark);
 }
 
 /* CUSTOM */

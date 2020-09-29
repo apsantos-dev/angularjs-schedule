@@ -37,7 +37,9 @@ export default class ContactsController {
 
       await trx.commit();
 
-      return response.status(201).send();
+      return response.status(201).json({
+        message: "Contact successfully registered",
+      });
     } catch (err) {
       await trx.rollback();
 

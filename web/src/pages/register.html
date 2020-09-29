@@ -66,31 +66,36 @@
         </article>
 
         <fieldset>
-          <div class="textarea-block custom">
-            <label for="bio">Observação</label>
-            <textarea
-              name="bio"
-              id="bio"
-              ng-model="register.obs"
-              placeholder="Adicione algum comentário, caso desejar."
-            ></textarea>
+          <div ng-switch="dataForm.note.display">
+            <div class="add-obs" ng-switch-default ng-click="addNote()">
+              <span>Adicionar observação</span>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </div>
+
+            <div
+              class="textarea-block custom theme animated fadeIn"
+              ng-switch-when="note"
+            >
+              <label for="bio">Observação</label>
+              <textarea
+                name="bio"
+                id="bio"
+                ng-model="register.obs"
+                placeholder="Adicione algum comentário, caso desejar."
+              ></textarea>
+            </div>
           </div>
         </fieldset>
       </div>
 
       <footer>
-        <!-- <p ng-if="!error.info">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-          Preencha todos os dados
-        </p> -->
-
         <button
           type="button"
           ng-disabled="registerForm.$invalid"
           ng-click="addContact(register)"
         >
-          <i class="fa fa-{{dataButton.icon}}" aria-hidden="true"></i>
-          {{dataButton.name}}
+          <i class="fa fa-{{dataForm.button.icon}}" aria-hidden="true"></i>
+          {{dataForm.button.name}}
         </button>
       </footer>
     </form>

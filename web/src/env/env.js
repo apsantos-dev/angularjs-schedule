@@ -1,4 +1,6 @@
 app.constant("env", {
-  API_BASE_URL: "http://localhost:3333",
-  API_GITHUB_USERS: "https://api.github.com/users",
+  APP_API_GITHUB: "https://api.github.com/users",
+  APP_BASE_URL: "http://localhost",
+  APP_PATH_CONTACT: ":3333/contact",
+  APP_PATH_CONTACTS: ":3333/contacts",
 });

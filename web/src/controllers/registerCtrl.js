@@ -1,4 +1,4 @@
-app.controller("registerCtrl", function ($scope, env) {
+app.controller("registerCtrl", function ($scope, serverAPI, utils) {
   $scope.title = "Cadastro";
   $scope.subtitle = "Informe os dados abaixo para cadastrar o novo contato:";
 
@@ -8,13 +8,21 @@ app.controller("registerCtrl", function ($scope, env) {
 
   $scope.user = [];
 
-  $scope.dataButton = {
-    name: "Buscar",
-    icon: "search",
-    info: "search",
+  $scope.dataForm = {
+    button: {
+      name: "Buscar",
+      icon: "search",
+      info: "search",
+    },
+    note: {
+      display: "button",
+      text: "",
+    },
   };
 
   $scope.addContact = async (register) => {
+    // "Systems Analyst. Passionate about web development, free software ...",
+
     const userMock = {
       login: "apsantos-dev",
       id: 32685587,
@@ -54,33 +62,59 @@ app.controller("registerCtrl", function ($scope, env) {
       updated_at: "2020-09-26T17:11:20Z",
     };
 
-    if ($scope.dataButton.info === "register") {
-      console.log("register", register);
+    if ($scope.dataForm.button.info === "register") {
       const { avatar_url, bio, html_url, id, location, name } = userMock;
       const { obs, user } = register;
 
-      const newContact = {
-        avatar_url,
-        bio,
-        html_url,
-        id,
-        location,
-        name,
-        obs,
-        user,
-      };
+      const dataUser = [
+        {
+          avatar_url,
+          bio,
+          html_url,
+          id,
+          location,
+          name,
+          obs,
+          user,
+        },
+      ];
 
-      console.log("newContact", newContact);
+      /**
+       * Validação do campo
+       *
+       * Necessário realizar a validação para que o backend
+       * consiga gravar todos os campos da tabela.
+       */
+      const newContact = dataUser.map((item) => {
+        return {
+          avatar_url: utils.validateFieldNullAndUndefined(item.avatar_url),
+          bio: utils.validateFieldNullAndUndefined(item.bio),
+          html_url: utils.validateFieldNullAndUndefined(item.html_url),
+          id: utils.validateFieldNullAndUndefined(item.id),
+          location: utils.validateFieldNullAndUndefined(item.location),
+          name: utils.validateFieldNullAndUndefined(item.name),
+          obs: utils.validateFieldNullAndUndefined(item.obs),
+          user: utils.validateFieldNullAndUndefined(item.user),
+        };
+      });
+
+      $scope.createContact(newContact[0]);
 
       return;
     }
 
     $scope.user.push(userMock);
 
-    $scope.dataButton = {
-      name: "Cadastrar contato",
-      icon: "cloud",
-      info: "register",
+    $scope.dataForm = {
+      button: {
+        name: "Cadastrar contato",
+        icon: "cloud",
+        info: "register",
+      },
+      note: {
+        display: "button",
+        text: "",
+      },
     };
 
     // const { user } = register;
@@ -96,32 +130,50 @@ app.controller("registerCtrl", function ($scope, env) {
 
     //   $scope.user.push(response.data);
 
-    //   $scope.dataButton = {
+    //   $scope.dataForm.button = {
     //     name: "Cadastrar contato",
     //     icon: "cloud",
     //     info: "register",
     //   };
-    //   console.log("$scope.dataButton", $scope.dataButton);
+    //   console.log("$scope.dataForm.button", $scope.dataForm.button);
     // }
+  };
+
+  $scope.addNote = () => {
+    $scope.dataForm.note.display = "note";
+  };
+
+  $scope.createContact = async (contact) => {
+    const response = await serverAPI.createContact(contact);
+    const { message } = response.data;
+
+    if (message === "Contact successfully registered") {
+      // alert da sucesso
+      console.log("success");
+      $scope.resetContact();
+      return;
+    }
+
+    console.log("error", error);
   };
 
   $scope.resetContact = () => {
     if ($scope.user) {
       $scope.user = [];
 
-      $scope.dataButton = {
-        name: "Buscar",
-        icon: "search",
-        info: "search",
+      $scope.dataForm = {
+        button: {
+          name: "Buscar",
+          icon: "search",
+          info: "search",
+        },
+        note: {
+          display: "button",
+          text: "",
+        },
       };
 
-      $scope.register.user = null;
+      $scope.register = null;
     }
   };
-
-  const testEnv = () => {
-    // console.log('env: ', services.base_url);
-    console.log("env", env.API_GITHUB_USERS);
-  };
-  // testEnv();
 });
