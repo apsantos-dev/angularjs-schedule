@@ -11,6 +11,37 @@ app.config(($routeProvider) => {
     .when("/contatos", {
       templateUrl: "src/pages/display.html",
       controller: "displayCtrl",
+      resolve: {
+        contacts: (apiServer, utils) => {
+          return new Promise((resolve, reject) => {
+            apiServer
+              .getContacts()
+              .then((response) => {
+                const items = response.data;
+
+                const arrContacts = items.map((contact) => {
+                  return {
+                    ...contact,
+                    sortItem: contact.name,
+                  };
+                });
+
+                utils.sortArrayItems(arrContacts);
+
+                resolve({
+                  status: true,
+                  data: arrContacts,
+                });
+              })
+              .catch(() => {
+                reject({
+                  status: false,
+                  data: "ERROR_LOADING_CONTACTS",
+                });
+              });
+          });
+        },
+      },
     })
     .when("/error", {
       templateUrl: "src/view/error.html",

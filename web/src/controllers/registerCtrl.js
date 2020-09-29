@@ -1,8 +1,8 @@
 app.controller("registerCtrl", function (
   $scope,
   $timeout,
-  githubAPI,
-  serverAPI,
+  apiGithub,
+  apiServer,
   constants,
   utils
 ) {
@@ -81,7 +81,7 @@ app.controller("registerCtrl", function (
 
     const { user } = register;
 
-    const response = await githubAPI.getUser(user);
+    const response = await apiGithub.getUser(user);
 
     if (response) {
       const { bio } = response.data;
@@ -111,7 +111,7 @@ app.controller("registerCtrl", function (
   };
 
   $scope.createContact = async (contact) => {
-    const response = await serverAPI.createContact(contact);
+    const response = await apiServer.createContact(contact);
 
     const { message } = response.data;
 

@@ -1,4 +1,4 @@
-app.factory("serverAPI", ($http, env) => {
+app.factory("apiServer", ($http, env) => {
   const _getContacts = () => {
     return $http.get(`${env.APP_BASE_URL}${env.APP_PATH_CONTACTS}`);
   };

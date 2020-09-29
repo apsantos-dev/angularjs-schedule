@@ -1,4 +1,4 @@
-app.factory("githubAPI", ($http, env) => {
+app.factory("apiGithub", ($http, env) => {
   const _getUser = (user) => {
     return $http.get(`${env.APP_API_GITHUB}/${user}`);
   };

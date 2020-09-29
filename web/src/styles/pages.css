@@ -45,9 +45,10 @@
  * header-content
  */
 .page-header .header-content {
-  width: 90%;
+  width: 100vw;
   position: relative;
   margin: 1.5rem auto;
+  padding: 1rem 1.6rem;
 }
 
 .page-header .header-content strong {
@@ -56,6 +57,10 @@
 }
 
 .page-header .header-content p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   font-size: 1.8rem;
   line-height: 2.4rem;
   color: var(--color-text-in-primary);
@@ -83,7 +88,7 @@
 .page-register-form main fieldset,
 .page-display-contacts main fieldset {
   border: 0;
-  padding: 0 2.4rem;
+  padding: 0 1.6rem;
 }
 
 .page-register-form main fieldset + fieldset,
@@ -123,7 +128,7 @@
  */
 .page-register-form main footer,
 .page-display-contacts main footer {
-  padding: 2rem 2.4rem;
+  padding: 2rem 1.6rem;
   background: var(--color-box-footer);
   border-top: 1px solid var(--color-line-in-white);
   margin-top: 2rem;
@@ -189,7 +194,7 @@
   box-shadow: 0 0 4rem var(--color-box-shadow-primary);
   border: 1px solid var(--color-line-in-white);
   border-radius: 0.5rem;
-  margin: 2.4rem 2.4rem 0;
+  margin: 2.4rem 1.6rem 0;
   overflow: hidden;
 }
 

@@ -10,90 +10,66 @@
 
     <div class="header-content">
       <strong>{{title | uppercase}}</strong>
-      <p>{{subtitle}}</p>
+      <p>
+        {{subtitle}}
+        <i
+          class="fa fa-plus iconBS animated fadeIn info"
+          aria-hidden="true"
+          title="Limpar consulta"
+          ng-if="!contacts.length"
+          ng-click="newContact()"
+        ></i>
+      </p>
     </div>
   </header>
 
   <main>
-    <fieldset>
-      <div class="input-block">
-        <label for="name">Filtrar</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nome ou username do GitHub"
-        />
-      </div>
-    </fieldset>
-
-    <article class="card-user specific">
-      <header>
-        <img src=https://avatars0.githubusercontent.com/u/32685587?v=4
-        alt='Anderson Pires' />
-        <div>
-          <strong>Anderson Pires</strong>
-          <span>Belo Horizonte - MG / Brasil</span>
-        </div>
-      </header>
-
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dolor quidem
-        illum placeat velit eaque perferendis impedit qui maxime aperiam.
-        Tempore, animi? Illo voluptas soluta minus aliquid fuga at ea.
-      </p>
-
-      <p class="info-bio">
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        Sem informações adicionais!
-      </p>
-
+    <div ng-if="contacts.length">
       <fieldset>
-        <div class="textarea-block custom">
-          <label class="custom">Observação</label>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quis
-            quas explicabo temporibus aperiam dolorem laborum nam doloribus,
-            adipisci ad itaque ratione eaque veritatis rerum deleniti fugit ut
-            commodi! Dolorum!
-          </p>
+        <div class="input-block">
+          <label for="name">Filtrar</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nome ou username do GitHub"
+          />
         </div>
       </fieldset>
-    </article>
 
-    <!-- TODO: COPY -->
-    <article class="card-user specific">
-      <header>
-        <img src=https://avatars0.githubusercontent.com/u/32685587?v=4
-        alt='Anderson Pires' />
-        <div>
-          <strong>Anderson Pires</strong>
-          <span>Belo Horizonte - MG / Brasil</span>
-        </div>
-      </header>
+      <article class="card-user specific" ng-repeat="item in contacts">
+        <header>
+          <img
+            ng-src="{{item.avatar_url ? item.avatar_url : 'src/assets/img/icons/profile.png'}}"
+            alt="{{item.name}}"
+          />
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dolor quidem
-        illum placeat velit eaque perferendis impedit qui maxime aperiam.
-        Tempore, animi? Illo voluptas soluta minus aliquid fuga at ea.
-      </p>
+          <div>
+            <strong>{{item.name}}</strong>
+            <span>{{item.location}}</span>
+          </div>
+        </header>
 
-      <p class="info-bio">
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        Sem informações adicionais!
-      </p>
+        <p ng-if="item.bio">{{item.bio}}</p>
 
-      <fieldset>
-        <div class="textarea-block custom">
-          <label class="custom">Observação</label>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quis
-            quas explicabo temporibus aperiam dolorem laborum nam doloribus,
-            adipisci ad itaque ratione eaque veritatis rerum deleniti fugit ut
-            commodi! Dolorum!
-          </p>
-        </div>
-      </fieldset>
-    </article>
+        <p class="info-bio" ng-if="!item.bio">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Sem informações adicionais
+        </p>
+
+        <fieldset ng-if="item.obs">
+          <div class="textarea-block custom">
+            <label class="custom">Observação</label>
+            <p>{{item.obs}}</p>
+          </div>
+        </fieldset>
+      </article>
+    </div>
+
+    <!-- notification -->
+    <div class="fixed-notification" ng-if="!contacts.length">
+      <i class="fa fa-{{dataPage.error.icon}}" aria-hidden="true"></i>
+      {{dataPage.error.info}}
+    </div>
   </main>
 </div>

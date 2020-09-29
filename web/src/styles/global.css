@@ -88,7 +88,6 @@
 .logo-container {
   grid-area: logo;
   align-self: center;
-  padding: 1.5rem;
   margin: 0;
   text-align: initial;
 }
@@ -107,7 +106,7 @@
   margin-left: 1rem;
 }
 
-.info {
+.information {
   grid-area: info;
   justify-self: end;
 
@@ -215,9 +214,34 @@
   width: 3.6rem;
 }
 
+/* fixed notification */
+.fixed-notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background);
+
+  box-shadow: 2px 2px 3rem var(--color-box-shadow);
+  color: var(--color-text-complement);
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  padding: 1.5rem 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.fixed-notification i {
+  font-size: 2rem;
+  margin-right: 1.2rem;
+}
+
 /* COLORS */
 .danger {
   color: var(--color-info-danger-secondary);
+}
+
+.info {
+  color: var(--color-info-info-primary);
 }
 
 .theme {
@@ -294,7 +318,7 @@
 
   .logo-container img {
     width: 100%;
-    max-width: 30rem;
+    max-width: 25rem;
     height: auto;
   }
 
@@ -315,7 +339,7 @@
   }
 
   .image-capa {
-    max-width: 35rem;
+    max-width: 30rem;
   }
 
   .input-block + .input-block,
