@@ -32,12 +32,17 @@
             type="text"
             name="name"
             id="name"
-            placeholder="Nome ou username do GitHub"
+            ng-model="orderBy"
+            placeholder="Quem você está procurando?"
+            autocomplete="off"
           />
         </div>
       </fieldset>
 
-      <article class="card-user specific" ng-repeat="item in contacts">
+      <article
+        class="card-user specific"
+        ng-repeat="item in contacts | filter: orderBy"
+      >
         <header>
           <img
             ng-src="{{item.avatar_url ? item.avatar_url : 'src/assets/img/icons/profile.png'}}"
