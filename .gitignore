@@ -5,7 +5,7 @@
 help
 
 # banco de dados
-*.sqlite3
+*.sqlite
 
 *~
 *.sw[mnpcod]
