@@ -6,12 +6,15 @@
   --color-box-base: #f1f1f1;
   --color-box-footer: #fafafc;
   --color-box-shadow-primary: rgba(54, 52, 53, 0.2);
+  --color-box-shadow-secondary: rgba(54, 52, 53, 0.4);
   --color-box-shadow-default: rgba(54, 52, 53, 0.5);
 
   --color-button-text: #ffffff;
 
   --color-info-danger-primary: #e74c3c;
   --color-info-danger-secondary: #c0392b;
+  --color-info-success-primary: #1abc9c;
+  --color-info-success-secondary: #16a085;
   --color-info-warning-primary: #e67e22;
   --color-info-warning-secondary: #d35400;
 
@@ -19,11 +22,11 @@
 
   --color-line-in-white: #e6e6f0;
 
+  --color-primary: #f9feff;
   --color-primary-dark: #17427e;
   --color-primary-darker: #021836;
   --color-primary-light: #7eb5e3;
   --color-primary-lighter: #4a7abc;
-  --color-primary: #f9feff;
 
   --color-secondary-dark: #132334;
   --color-secondary: #455d76;

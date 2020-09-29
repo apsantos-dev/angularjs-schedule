@@ -101,3 +101,9 @@
     </form>
   </main>
 </div>
+
+<!-- TOAST -->
+<div class="toast success animated fadeIn" ng-if="toast.active">
+  <i class="fa fa-{{toast.icon}}" aria-hidden="true"></i>
+  <span>Lorem ipsum, dolor sit {{toast.message}}</span>
+</div>

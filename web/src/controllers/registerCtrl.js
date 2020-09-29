@@ -1,9 +1,21 @@
-app.controller("registerCtrl", function ($scope, serverAPI, utils) {
+app.controller("registerCtrl", function (
+  $scope,
+  $timeout,
+  serverAPI,
+  constants,
+  utils
+) {
   $scope.title = "Cadastro";
   $scope.subtitle = "Informe os dados abaixo para cadastrar o novo contato:";
 
   $scope.error = {
     info: "",
+  };
+
+  $scope.toast = {
+    active: false,
+    icon: "",
+    message: "",
   };
 
   $scope.user = [];
@@ -20,9 +32,11 @@ app.controller("registerCtrl", function ($scope, serverAPI, utils) {
     },
   };
 
-  $scope.addContact = async (register) => {
-    // "Systems Analyst. Passionate about web development, free software ...",
+  /**
+   * Functions
+   */
 
+  $scope.addContact = async (register) => {
     const userMock = {
       login: "apsantos-dev",
       id: 32685587,
@@ -144,17 +158,34 @@ app.controller("registerCtrl", function ($scope, serverAPI, utils) {
   };
 
   $scope.createContact = async (contact) => {
-    const response = await serverAPI.createContact(contact);
-    const { message } = response.data;
+    // const response = await serverAPI.createContact(contact);
 
-    if (message === "Contact successfully registered") {
-      // alert da sucesso
-      console.log("success");
-      $scope.resetContact();
-      return;
-    }
+    // const { message } = response.data;
 
-    console.log("error", error);
+    // if (message === "CONTACT_SUCCESSFULLY_REGISTERED") {
+    //   $scope.notify();
+    //   $scope.resetContact();
+    //   return;
+    // }
+
+    $scope.resetContact();
+    $scope.notify();
+  };
+
+  $scope.notify = () => {
+    $scope.toast = {
+      active: true,
+      icon: "info-circle",
+      message: constants.CONTACT_SUCCESSFULLY_REGISTERED,
+    };
+
+    $timeout(function () {
+      $scope.toast = {
+        active: false,
+        icon: "info-circle",
+        message: "",
+      };
+    }, 5000);
   };
 
   $scope.resetContact = () => {
