@@ -84,5 +84,8 @@ app.config(($routeProvider) => {
     .when("/error", {
       templateUrl: "src/view/error.html",
     })
+    .when("/tools", {
+      templateUrl: "src/view/tools.html",
+    })
     .otherwise({ redirectTo: "/" });
 });

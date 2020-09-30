@@ -248,6 +248,26 @@
   color: var(--color-primary-dark);
 }
 
+/* TOOLS */
+.container-tools {
+  text-align: center;
+  width: 100vw;
+}
+
+.container-tools .images {
+  margin-left: 3rem;
+  text-align: left;
+  margin-top: 2rem;
+  width: 100%;
+}
+.container-tools .images img {
+  box-shadow: 0 0 4rem var(--color-box-shadow-primary);
+  margin: 0.5rem;
+  width: 100%;
+  max-width: 12rem;
+  height: auto;
+}
+
 /* CUSTOM */
 .toast.success {
   display: flex;
